@@ -7,6 +7,16 @@ namespace DynamicExpresso.UnitTest
 	[TestFixture]
 	public class VariablesTest
 	{
+        [Test]
+        public void Test123()
+        {
+            var target = new Interpreter()
+                .SetVariable("token", -1)
+                .SetVariable("target", new { a = 1 });
+
+            Assert.AreEqual(1, target.Eval("token == -1 ? target.a : token"));
+        }
+
 		[Test]
 		public void Variables()
 		{
